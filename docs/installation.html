@@ -32,6 +32,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.css">
     </head>
 
     <body class="bg-success bg-opacity-10">
@@ -117,8 +119,83 @@
 
         <div class="container">
             <h2 class="text-center mt-3 mb-5">Installation</h2>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            <!--Installation-->
+
+            <h4 class="mt-3 mb-3" id="requirements">
+                <a class="text-body fw-bold text-decoration-none" href="#requirements">
+                    Requirements
+                </a>
+            </h4>
+            <hr>
+
+            <p class="fs-5">
+                Django-Routify is an open source third-party package for Python with Django, which works great with <b>Django 4.0+</b> and <b>Python 3.8+</b>.
+            </p>
+
+            <br>
+
+            <h4 class="mt-3 mb-3" id="how-to-install">
+                <a class="text-body fw-bold text-decoration-none" href="#how-to-install">
+                    How to install Django-Routify?
+                </a>
+            </h4>
+            <hr>
+
+            <p class="fs-5">
+                To install Django-Routify package use the command below in your environment:
+            </p>
+
+            <ul>
+                <li class="fs-5">
+                    Using <span class="badge text-bg-secondary fw-normal font-monospace">pip</span>:
+                </li>
+            </ul>
+            <pre><code class="language-bash">pip install django-routify</code></pre>
+
+            <ul>
+                <li class="fs-5">
+                    Using <span class="badge text-bg-secondary fw-normal font-monospace">poetry</span>:
+                </li>
+            </ul>
+            <pre><code class="language-bash">poetry add django-routify</code></pre>
+
+            <br>
+
+            <h4><b>Note:</b></h4>
+            <p class="fs-5">
+                Django-Routify package automatically during installation downloading latest Django framework version.
+            </p>
+
+            <br>
+
+            <h4 class="mt-3 mb-3" id="how-to-clone">
+                <a class="text-body fw-bold text-decoration-none" href="#how-to-clone">
+                    How to clone Django-Routify repository?
+                </a>
+            </h4>
+            <hr>
+
+            <p class="fs-5">
+                If you want to clone source code of django-routify package (and maybe help with something locally), use the command below:
+            </p>
+            <ul>
+                <li class="fs-5">
+                    Using <span class="badge text-bg-secondary fw-normal font-monospace">web URL</span>:
+                </li>
+            </ul>
+            <pre><code class="language-bash">git clone https://github.com/vitaliypopel/django-routify.git</code></pre>
+
+            <ul>
+                <li class="fs-5">
+                    Using password-protected <span class="badge text-bg-secondary fw-normal font-monospace">SSH key</span>:
+                </li>
+            </ul>
+            <pre><code class="language-bash">git clone git@github.com:vitaliypopel/django-routify.git</code></pre>
+
+            <div class="d-flex justify-content-center m-5">
+                <a class="btn btn-success btn-lg" href="https://vitaliypopel.github.io/django-routify-docs/documentation">
+                    Go to detail documentation
+                </a>
+            </div>
         </div>
 
         <footer class="bg-success bg-opacity-50">
@@ -146,6 +223,9 @@
             </ul>
         </footer>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
+
+        <script>hljs.highlightAll();</script>
     </body>
 </html>
