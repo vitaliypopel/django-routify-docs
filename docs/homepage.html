@@ -8,6 +8,11 @@
 
         <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/vitaliypopel/django-routify-docs/refs/heads/main/icons/favicon.png">
         <style>
+            @media (min-width: 300px) {
+                .container {
+                    max-width: 1000px !important;
+                }
+            }
             .logo-text {
                 font-family: 'Roboto', sans-serif;
                 font-optical-sizing: auto;
@@ -44,14 +49,13 @@
                         <a class="logo-text navbar-brand ms-4 fs-4" href="https://vitaliypopel.github.io/django-routify-docs/homepage">
                             Django-Routify
                         </a>
-                        <b class="text-green w-50">Package for simple routing Views in the classic Django framework</b>
                     </div>
                     <div class="offcanvas offcanvas-start offcanvas-bg-green" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                         <div class="offcanvas-header">
                             <h5 class="logo-text offcanvas-title" id="offcanvasNavbarLabel">Django-Routify</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
-                        <b class="offcanvas-header text-green">Package for simple routing Views in the classic Django framework</b>
+                        <b class="offcanvas-header text-green">Lightweight package designed to simplify routing views in the classic Django framework</b>
                         <div class="offcanvas-body d-flex flex-column">
                             <hr>
                             <ul class="navbar-nav pe-3 pb-auto">
@@ -112,9 +116,30 @@
         </nav>
 
         <div class="container">
-            <h2 class="text-center mt-3 mb-3">Django-Routify documentation</h2>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            <!--About package-->
+            <h2 class="text-center mt-3 mb-3">Django-Routify</h2>
+
+            <h4 class="mt-3 mb-3">
+                <b>What Django-Routify is?</b>
+            </h4>
+
+            <p class="fs-5">
+                <b>Django-Routify</b> is a lightweight package designed to simplify routing views in the classic Django framework.
+            </p>
+            <p class="fs-5">
+                With Django-Routify, you no longer need to manually register your views in <span class="text-decoration-underline font-monospace">urlpatterns</span> using Django’s <span class="text-decoration-underline font-monospace">path()</span> function. Instead, the package introduces the <span class="text-decoration-underline font-monospace">Router</span> class, allowing you to easily register views using the <span class="text-decoration-underline font-monospace">@Router.route(url_path=...)</span> decorator. This approach is similar to what you might already be familiar with from frameworks like Flask, FastAPI, or Django REST Framework (DRF), where views are registered with decorators. This not only makes your code easier to read but also streamlines the process of routing.
+            </p>
+            <p class="fs-5">
+                Additionally, Django-Routify provides the option to set <span class="text-decoration-underline font-monospace">auto_trailing_slash=True</span> when initializing the <span class="text-decoration-underline font-monospace">Router</span>. This allows you to write URL paths similar to those in Flask or FastAPI, such as <span class="text-decoration-underline font-monospace">/hello-world</span>, which will be automatically translated into the classic Django URL format: <span class="text-decoration-underline font-monospace">hello-world/</span>.
+            </p>
+            <p class="fs-5">
+                Django-Routify supports both function-based and class-based views, as well as asynchronous views, providing flexibility for different project needs.
+            </p>
+
+            <div class="d-flex justify-content-center m-5">
+                <a class="btn btn-outline-success btn-lg" href="https://vitaliypopel.github.io/django-routify-docs/overview">
+                    Overview
+                </a>
+            </div>
         </div>
 
         <footer class="bg-success bg-opacity-50">
