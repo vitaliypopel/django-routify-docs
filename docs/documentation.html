@@ -32,6 +32,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.css">
     </head>
 
     <body class="bg-success bg-opacity-10">
@@ -116,9 +118,194 @@
         </nav>
 
         <div class="container">
-            <h2 class="text-center mt-3 mb-5">Documentation (soon)</h2>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            <!--Documentation-->
+            <h2 class="text-center mt-3 mb-5">Documentation</h2>
+
+            <h4 class="mt-3 mb-3" id="router">
+                <a class="text-body fw-bold text-decoration-none" href="#router">
+                    # Router
+                </a>
+            </h4>
+            <hr>
+
+            <p class="fs-5">
+                <b>Router</b> class is intended for future registration of views including basic settings, such as <span class="badge text-bg-secondary fw-normal font-monospace">prefix</span>, <span class="badge text-bg-secondary fw-normal font-monospace">app_name</span> etc.
+                Class works great with Django-Routify <a class="text-light" href="https://github.com/vitaliypopel/django-routify/releases/tag/0.2.7.1" target="_blank">v0.2.7.1</a> and above.
+            </p>
+
+            <br>
+
+            <p class="fs-5">
+                Router initializer has the following parameters:
+            </p>
+            <ul>
+                <li class="fs-5 mt-2 mb-2">
+                    <span class="badge text-bg-secondary fw-normal font-monospace">prefix</span> - URL prefix for each of the URLs (param <ins>optional</ins>);
+                </li>
+                <li class="fs-5 mt-2 mb-2">
+                    <span class="badge text-bg-secondary fw-normal font-monospace">app_name</span> - application name, the same that we doing in classic Django in urls.py file (param <ins>optional</ins>);
+                </li>
+                <li class="fs-5 mt-2 mb-2">
+                    Extra parameters:
+                    <ul style="list-style-type: disc;">
+                        <li class="fs-5 mt-2 mb-2">
+                            <span class="badge text-bg-secondary fw-normal font-monospace">auto_naming</span> - automatic naming for each view (<ins>True</ins> by default);
+                        </li>
+                        <li class="fs-5 mt-2 mb-2">
+                            <span class="badge text-bg-secondary fw-normal font-monospace">auto_trailing_slash</span> - automatically adds a trailing slash to each URL path (<ins>False</ins> by default);
+                        </li>
+                        <li class="fs-5 mt-2 mb-2">
+                            <span class="badge text-bg-secondary fw-normal font-monospace">dynamic_pattern</span> (new in <a class="text-light" href="https://github.com/vitaliypopel/django-routify/releases/tag/0.3.3" target="_blank">v0.3.3</a>) - custom dynamic URL pattern for those people which is familiar with Go, NodeJS, Java, C#, PHP, Ruby patterns.
+                            <br class="mt-2 mb-2">Pattern examples:
+                            <ul style="list-style-type: disc;">
+                                <li>
+                                    <span class="badge text-bg-secondary fw-normal font-monospace">'/books/&lt;slug:book&gt;'</span> - default django pattern;
+                                </li>
+                                <li>
+                                    <span class="badge text-bg-secondary fw-normal font-monospace">'/books/:book'</span> - colon based pattern;
+                                </li>
+                                <li>
+                                    <span class="badge text-bg-secondary fw-normal font-monospace">'/books/{book}'</span> - curly brackets based pattern;
+                                </li>
+                                <li>
+                                    <span class="badge text-bg-secondary fw-normal font-monospace">'/books/&lt;book&gt;'</span> - angle brackets based pattern;
+                                </li>
+                            </ul>
+                            <p class="fs-5 mt-2 mb-2">
+                                Parameter is getting classes from django_routify package: ColonPattern, CurlyPattern and AnglePattern.
+                                By default it is <ins>default django pattern</ins> or Pattern class.
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <br>
+
+            <h4 class="mt-3 mb-3" id="router-decorators">
+                <a class="text-body fw-bold text-decoration-none" href="#router-decorators">
+                    # Router decorators
+                </a>
+            </h4>
+            <hr>
+
+            <p class="fs-5">
+                Router has decorator <span class="badge text-bg-secondary fw-normal font-monospace">route</span> (@Router.route) for decorating views.
+            </p>
+
+            <br>
+
+            <p class="fs-5">
+                Router decorator <span class="badge text-bg-secondary fw-normal font-monospace">route</span> has the following parameters:
+            </p>
+            <ul>
+                <li class="fs-5 mt-2 mb-2">
+                    <span class="badge text-bg-secondary fw-normal font-monospace">url_path</span>* - URL path for current view (param <ins>required</ins>);
+                </li>
+                <li class="fs-5 mt-2 mb-2">
+                    Extra parameters:
+                    <ul style="list-style-type: disc;">
+                        <li class="fs-5 mt-2 mb-2">
+                            <span class="badge text-bg-secondary fw-normal font-monospace">name</span> - name for current view (param <ins>optional</ins>);
+                        </li>
+                        <li class="fs-5 mt-2 mb-2">
+                            <span class="badge text-bg-secondary fw-normal font-monospace">methods</span> (new in <a class="text-light" href="https://github.com/vitaliypopel/django-routify/releases/tag/0.2.8" target="_blank">v0.2.8</a>) - required HTTP methods for current view, is getting list with string methods ['GET', 'POST'] (param <ins>optional</ins>).
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <br>
+
+            <h4 class="mt-3 mb-3" id="include-router-function">
+                <a class="text-body fw-bold text-decoration-none" href="#include-router-function">
+                    # Including router function
+                </a>
+            </h4>
+            <hr>
+
+            <p class="fs-5">
+                For including router into <span class="badge text-bg-secondary fw-normal font-monospace">urlpatterns</span> Django-Routify has function called <span class="badge text-bg-secondary fw-normal font-monospace">include_router</span> which is getting router instance as a parameter.
+            </p>
+
+            <br>
+
+            <h4 class="mt-3 mb-3" id="dynamic-patterns">
+                <a class="text-body fw-bold text-decoration-none" href="#dynamic-patterns">
+                    # Dynamic URL patterns
+                </a>
+            </h4>
+            <hr>
+
+            <p class="fs-5">
+                In new <a class="text-light" href="https://github.com/vitaliypopel/django-routify/releases/tag/0.3.3" target="_blank">v0.3.3</a> has been added custom dynamic patterns which can be setted during Router initializing in <span class="badge text-bg-secondary fw-normal font-monospace">dynamic_pattern</span> parameter.
+            </p>
+
+            <p class="fs-5">
+                It can be useful for those people which is familiar with dynamic URL patterns from Go, NodeJS, PHP etc.
+            </p>
+
+            <p class="fs-5">
+                Patterns are automatically getting types from annotations, or from <span class="badge text-bg-secondary fw-normal font-monospace">'parameters'</span> attribute (example: {'book': str}) of class. By default if Pattern didn't found annotation of type it will be automatically setted to <span class="badge text-bg-secondary fw-normal font-monospace">slug</span> django type.
+            </p>
+
+            <br>
+
+            <p class="fs-5">
+                Django-Routify has the following dynamic URL pattern classes:
+            </p>
+
+            <ul>
+                <li class="fs-5 mt-2 mb-2">
+                    <span class="badge text-bg-secondary fw-normal font-monospace">'/users/&lt;int:user_id&gt;'</span> - Pattern class;
+                </li>
+                <li class="fs-5 mt-2 mb-2">
+                    <span class="badge text-bg-secondary fw-normal font-monospace">'/users/:user_id'</span> - ColonPattern class;
+                </li>
+                <li class="fs-5 mt-2 mb-2">
+                    <span class="badge text-bg-secondary fw-normal font-monospace">'/users/{user_id}'</span> - CurlyPattern class;
+                </li>
+                <li class="fs-5 mt-2 mb-2">
+                    <span class="badge text-bg-secondary fw-normal font-monospace">'/users/&lt;user_id&gt;'</span> - AnglePattern class;
+                </li>
+            </ul>
+
+            <br>
+
+            <p class="fs-5">
+                Example of usage custom patterns:
+            </p>
+
+            <div>
+                <pre><code class="language-python">from django.views.generic import TemplateView
+
+from django_routify import Router, CurlyPattern
+
+router = Router(prefix='/users', dynamic_pattern=CurlyPattern)
+
+
+@router.route('/{user_id}', methods=['GET']) # will be translated to '/&lt;int:user_id&gt;'
+class User(TemplateView):
+    parameters = {
+        'user_id': int, # annotation for user_id
+    }
+    template_name = 'user.html'
+
+
+print(router)
+'''
+Router(
+    app_name:   ""
+    url_prefix: "users"
+    urls:       [&lt;URLPattern '/&lt;int:user_id&gt;' [name='user']&gt;]
+)
+'''</code></pre>
+            </div>
+
+            <div class="d-flex justify-content-center m-5">
+                <a class="btn btn-success btn-lg" href="https://github.com/vitaliypopel/django-routify">
+                    Star it &nbsp; <svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true" style="fill: white;"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg>
+                </a>
+            </div>
         </div>
 
         <footer class="bg-success bg-opacity-50">
@@ -147,5 +334,10 @@
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+
+        <script>hljs.highlightAll();</script>
     </body>
 </html>
