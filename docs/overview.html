@@ -210,6 +210,7 @@ def hello_world(request: HttpRequest) -> HttpResponse:
                 Manually adding <span class="badge text-bg-secondary fw-normal font-monospace">'app'</span> as <span class="badge text-bg-secondary fw-normal font-monospace">app_name</span>, creating <span class="badge text-bg-secondary fw-normal font-monospace">'/app'</span> as <span class="badge text-bg-secondary fw-normal font-monospace">prefix</span> for URLResolver paths and including hello_world view <span class="badge text-bg-secondary fw-normal font-monospace">(all those were registered manually)</span>:
             </p>
             <div>
+                <p class="font-monospace">~/project/app/urls.py</p>
                 <pre><code class="language-python">from django.urls import path, include
 
 from .views import hello_world
