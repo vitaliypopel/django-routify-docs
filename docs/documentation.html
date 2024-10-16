@@ -196,13 +196,33 @@
             <hr>
 
             <p class="fs-5">
-                Router has decorator <span class="badge text-bg-secondary fw-normal font-monospace">route</span> (@Router.route) for decorating views.
+                Router has following decorators:
             </p>
+            <ul>
+                <li class="fs-5 mt-2 mb-2">
+                    <span class="badge text-bg-secondary fw-normal font-monospace">@router.route(...)</span> - for registration views with multiple HTTP methods;
+                </li>
+                <li class="fs-5 mt-2 mb-2">
+                    <span class="badge text-bg-secondary fw-normal font-monospace">@router.get(...)</span> (new in <a class="text-light" href="https://github.com/vitaliypopel/django-routify/releases/tag/0.3.4" target="_blank">v0.3.4</a>) - for registration views and wrap them into single GET method;
+                </li>
+                <li class="fs-5 mt-2 mb-2">
+                    <span class="badge text-bg-secondary fw-normal font-monospace">@router.post(...)</span> (new in <a class="text-light" href="https://github.com/vitaliypopel/django-routify/releases/tag/0.3.4" target="_blank">v0.3.4</a>) - for registration views and wrap them into single POST method;
+                </li>
+                <li class="fs-5 mt-2 mb-2">
+                    <span class="badge text-bg-secondary fw-normal font-monospace">@router.put(...)</span> (new in <a class="text-light" href="https://github.com/vitaliypopel/django-routify/releases/tag/0.3.4" target="_blank">v0.3.4</a>) - for registration views and wrap them into single PUT method;
+                </li>
+                <li class="fs-5 mt-2 mb-2">
+                    <span class="badge text-bg-secondary fw-normal font-monospace">@router.patch(...)</span> (new in <a class="text-light" href="https://github.com/vitaliypopel/django-routify/releases/tag/0.3.4" target="_blank">v0.3.4</a>) - for registration views and wrap them into single PATCH method;
+                </li>
+                <li class="fs-5 mt-2 mb-2">
+                    <span class="badge text-bg-secondary fw-normal font-monospace">@router.delete(...)</span> (new in <a class="text-light" href="https://github.com/vitaliypopel/django-routify/releases/tag/0.3.4" target="_blank">v0.3.4</a>) - for registration views and wrap them into single DELETE method.
+                </li>
+            </ul>
 
             <br>
 
             <p class="fs-5">
-                Router decorator <span class="badge text-bg-secondary fw-normal font-monospace">route</span> has the following parameters:
+                Decorator <span class="badge text-bg-secondary fw-normal font-monospace">@router.route</span> has the following parameters:
             </p>
             <ul>
                 <li class="fs-5 mt-2 mb-2">
@@ -216,6 +236,25 @@
                         </li>
                         <li class="fs-5 mt-2 mb-2">
                             <span class="badge text-bg-secondary fw-normal font-monospace">methods</span> (new in <a class="text-light" href="https://github.com/vitaliypopel/django-routify/releases/tag/0.2.8" target="_blank">v0.2.8</a>) - required HTTP methods for current view, is getting list with string methods ['GET', 'POST'] (param <ins>optional</ins>).
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <br>
+
+            <p class="fs-5">
+                Decorators <span class="badge text-bg-secondary fw-normal font-monospace">@router.get</span>, <span class="badge text-bg-secondary fw-normal font-monospace">@router.post</span>, <span class="badge text-bg-secondary fw-normal font-monospace">@router.put</span>, <span class="badge text-bg-secondary fw-normal font-monospace">@router.patch</span> and <span class="badge text-bg-secondary fw-normal font-monospace">@router.delete</span> for single HTTP method wrapping has the following parameters:
+            </p>
+            <ul>
+                <li class="fs-5 mt-2 mb-2">
+                    <span class="badge text-bg-secondary fw-normal font-monospace">url_path</span>* - URL path for current view (param <ins>required</ins>);
+                </li>
+                <li class="fs-5 mt-2 mb-2">
+                    Extra parameters:
+                    <ul style="list-style-type: disc;">
+                        <li class="fs-5 mt-2 mb-2">
+                            <span class="badge text-bg-secondary fw-normal font-monospace">name</span> - name for current view (param <ins>optional</ins>);
                         </li>
                     </ul>
                 </li>
@@ -272,7 +311,7 @@
                     <span class="badge text-bg-secondary fw-normal font-monospace">'/users/{user_id}'</span> - CurlyPattern class;
                 </li>
                 <li class="fs-5 mt-2 mb-2">
-                    <span class="badge text-bg-secondary fw-normal font-monospace">'/users/&lt;user_id&gt;'</span> - AnglePattern class;
+                    <span class="badge text-bg-secondary fw-normal font-monospace">'/users/&lt;user_id&gt;'</span> - AnglePattern class.
                 </li>
             </ul>
 
