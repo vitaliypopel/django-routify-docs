@@ -329,7 +329,7 @@ from django_routify import Router, CurlyPattern
 router = Router(prefix='/users', dynamic_pattern=CurlyPattern)
 
 
-@router.route('/{user_id}', methods=['GET']) # will be translated to '/&lt;int:user_id&gt;'
+@router.get('/{user_id}') # will be translated to '/&lt;int:user_id&gt;'
 class User(TemplateView):
     parameters = {
         'user_id': int, # annotation for user_id
